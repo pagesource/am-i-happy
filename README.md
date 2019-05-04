@@ -9,8 +9,8 @@ To run app use follow steps
 
 # To run app 
 1. Take pull of latest code 
-2. Run npm i or npm install 
-3. import moodtypes.json collection in mongoDB in HappyIndex Database
+2. Run `npm i` or `npm install` 
+3. import `moodtypes.json` collection in mongoDB in `HappyIndex` Database
 
 
 

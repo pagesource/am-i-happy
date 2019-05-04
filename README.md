@@ -12,6 +12,8 @@ To run app use follow steps
 2. Run `npm i` or `npm install` 
 3. import `moodtypes.json` collection in mongoDB in `HappyIndex` Database
 
+Site Url : http://localhost:8000/
+
 
 
 

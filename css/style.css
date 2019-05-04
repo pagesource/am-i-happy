@@ -1,0 +1,116 @@
+/* ----------------------------------------------- */
+/* BASIC SETUP */
+/* ----------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  color: #2e2e2e;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  overflow-x: hidden;
+  background-image: url('../images/background.jpg');
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+button {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+img {
+  width: 70px;
+}
+
+h1 {
+  padding-bottom: 40px;
+  font-size: 150%;
+  font-weight: inherit;
+  text-align: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.mood {
+  text-align: center;
+}
+
+.comments {
+  display: none;
+  width: 90%;
+  max-width: 100%;
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px 1px #bb16161a;
+}
+
+.comments-form button {
+  border-radius: 5px;
+  padding: 10px 15px;
+  background: #000000;
+  color: #fff;
+  width: 58%;
+}
+
+.comments-form button[type="button"] {
+  background: #bb1616;
+  width: 40%;
+}
+
+.comments-form input[type="text"],
+.comments-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.comments-form input[type="text"]:focus,
+.comments-form textarea:focus {
+  background: #bb16160a;
+  outline: none;
+  border: 1px solid #000000;
+  transition-duration: 1s;
+}
+
+@media only screen and (min-width: 680px) {
+  h1 {
+    font-size: 200%;
+  }
+  img {
+    width: 80px;
+  }
+  .comments {
+    width: 65%;
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  img {
+    width: 100px;
+  }
+  .comments {
+    width: 40%;
+  }
+}

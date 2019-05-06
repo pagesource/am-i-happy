@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"
-      rel="stylesheet"
-    />
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#bb1616"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+
+    <!-- TODO add manifest here -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Mood Analyzer App">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <!-- <link rel="apple-touch-startup-image" href="/launch.png"> -->
     <title>Mood Analzer App</title>
   </head>
 
@@ -18,14 +26,10 @@
         <h1>Hey buddy! How's your mood?</h1>
         <div class="mood-scale">
           <% for(var i=0; i < moodtypes.length; i++) { %>
-          <!-- <h1><%= moodtypes[i].mood_type %></h1> -->
           <button id="btn-<%= moodtypes[i].mood_type %>" data-id="<%= moodtypes[i].mood_id%>" >
             <img src="images/<%= moodtypes[i].mood_type %>.png" data-id="<%= moodtypes[i].mood_id
             %>" alt=<%= moodtypes[i].mood_type %> />
           </button>
-          <!-- <button id="btn-stressed"><img src="images/mood_02.png" alt="Stressed" /></button>
-                <button id="btn-normal"><img src="images/mood_03.png" alt="Normal" /></button>
-                <button id="btn-happy"><img src="images/mood_04.png" alt="Happy" /></button> -->
           <%}%>
         </div>
       </div>
@@ -33,7 +37,7 @@
         <h1>Let's Talk!</h1>
         <div class="comments-form">
           <form action="/addHappyIndex" method="POST">
-            <input type="text" placeholder="John" label="Name" name="name" />
+            <input type="text" placeholder="Ram" label="Name" name="name" />
             <input type="hidden" name="mood_type" id ="mood_type" value="" />
             <textarea
               class="width-100"
@@ -45,12 +49,14 @@
               required
             ></textarea>
             <button type="submit" value="Post">Submit</button>
-            <button type="button" id="back">Back</button>
+            <button type="button" id="cancel">Cancel</button>
           </form>
         </div>
       </div>
     </div>
     <script src="/js/script.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
 

@@ -10,7 +10,7 @@ app.use(express.static(__dirname));
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/HappyIndex");
-const EmplyeeSchema = new mongoose.Schema({
+const EmployeeSchema = new mongoose.Schema({
   name: String,
   mood_type: String,
   currentDate: Date,
@@ -22,13 +22,12 @@ const MoodSchema = new mongoose.Schema({
 });
 
 
-var Employee = mongoose.model("Employee", EmplyeeSchema);
+var Employee = mongoose.model("Employee", EmployeeSchema);
 var MoodType = mongoose.model("MoodType", MoodSchema);
 
 
 app.get("/", (req, res) => {
     MoodType.find({},function(err, moodtypes) {
-        console.log('Mood type', moodtypes)
         res.render("index",{moodtypes:moodtypes});
     })
   
@@ -37,7 +36,6 @@ app.get("/", (req, res) => {
 app.post("/addHappyIndex", (req, res) => {
   var employee = req.body;
   employee.currentDate = new Date();
-  console.log(employee);
   var myData = new Employee(employee);
   myData
     .save()

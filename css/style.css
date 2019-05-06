@@ -84,7 +84,8 @@ h1 {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
+  font-family: "Open Sans", sans-serif;
 }
 .comments-form input[type="text"]:focus,
 .comments-form textarea:focus {

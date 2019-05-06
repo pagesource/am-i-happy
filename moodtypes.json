@@ -1,4 +1,4 @@
-{"_id":{"$oid":"5ccac5a2f0304c3c7014898c"},"mood_type":"happy","mood_id":"1"}
-{"_id":{"$oid":"5ccac5baf0304c3c70148994"},"mood_type":"normal","mood_id":"2"}
-{"_id":{"$oid":"5ccac64df0304c3c701489cc"},"mood_type":"stressed","mood_id":3}
-{"_id":{"$oid":"5ccac714f0304c3c70148a1f"},"mood_type":"sad","mood_id":"4"}
+{"_id":{"$oid":"5ccac5a2f0304c3c7014898c"},"mood_type":"happy","mood_id":"0"}
+{"_id":{"$oid":"5ccac5baf0304c3c70148994"},"mood_type":"normal","mood_id":"1"}
+{"_id":{"$oid":"5ccac64df0304c3c701489cc"},"mood_type":"stressed","mood_id":"2"}
+{"_id":{"$oid":"5ccac714f0304c3c70148a1f"},"mood_type":"sad","mood_id":"3"}

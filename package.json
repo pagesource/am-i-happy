@@ -4,10 +4,9 @@
   "description": "Simple App for Saving HappyIndex of Employee",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Navin",
+    "start": "node index.js"
+     },
+  "author": "Navin and Muskan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",

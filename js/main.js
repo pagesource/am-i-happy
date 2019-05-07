@@ -9,6 +9,10 @@ cancelBtn.addEventListener("click", function(event) {
   comment[0].style.display = "none";
   const message =document.getElementById("comment_area").value;
   const moodtype =document.getElementById("mood_type").value;
+  let moodtypeId = localStorage.getItem("mid");
+  console.log(moodtypeId);
+  document.getElementById(`btn-${moodtypeId}`).classList.remove('animated', 'bounce');
+
   const data = {
     name:'Ram',
     mood_type:moodtype,
@@ -27,14 +31,21 @@ cancelBtn.addEventListener("click", function(event) {
 
 moodScaleDom.addEventListener("click", function(event) {
   event.stopPropagation();
-  mood[0].style.display = "none";
-  comment[0].style.display = "block";
   const moodtypeId = event.target.getAttribute("data-id");
+  document.getElementById(`btn-${moodtypeId}`).classList.add('animated', 'bounce');
+  setTimeout(myFunction, 1000);
   document.getElementById("mood_type").value = moodtypeId;
   document.getElementById("comment_area").innerHTML = moodtypeMessage(
     moodtypeId
   );
+  localStorage.setItem("mid", moodtypeId);
 });
+
+function myFunction(){
+  mood[0].style.display = "none";
+  comment[0].style.display = "block";
+}
+
 function moodtypeMessage(type) {
   let msg = "";
   switch (type) {

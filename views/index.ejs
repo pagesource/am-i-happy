@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#bb1616"/>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 
     <!-- TODO add manifest here -->
@@ -24,13 +25,19 @@
     <div class="mood-box box">
       <div class="mood">
         <h1>Hey buddy! How's your mood?</h1>
+        <h6>(Choose from the below moods)</h6>
         <div class="mood-scale">
-          <% for(var i=0; i < moodtypes.length; i++) { %>
-          <button id="btn-<%= moodtypes[i].mood_type %>" data-id="<%= moodtypes[i].mood_id%>" >
-            <img src="images/<%= moodtypes[i].mood_type %>.png" data-id="<%= moodtypes[i].mood_id
-            %>" alt=<%= moodtypes[i].mood_type %> />
-          </button>
-          <%}%>
+          <ul>
+            <% for(var i=0; i < moodtypes.length; i++) { %>
+              <li>
+                <button id="btn-<%= moodtypes[i].mood_id %>" data-id="<%= moodtypes[i].mood_id%>" class="mood-btn">
+                  <img src="images/<%= moodtypes[i].mood_type %>.png" data-id="<%= moodtypes[i].mood_id
+                  %>" alt=<%= moodtypes[i].mood_type %> />
+                </button>
+                <span><%= moodtypes[i].mood_type %></span>
+              </li>
+            <%}%>
+          </ul>
         </div>
       </div>
       <div class="comments">
@@ -59,21 +66,3 @@
     <script src="/js/app.js"></script>
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <title>Basic App</title>
-    </head>
-
-    <body>
-        <h1>Happy Index Application </h1>
-        <form method="post" action="/addHappyIndex">
-            <input type="text" name="name" placeholder="Enter Name..." required>
-            <input type="text" name="mood_type" placeholder="Enter Your mood..." required>
-            <input type="submit" value="Add Name">
-        </form>
-        
-    </body>
-
-</html> -->

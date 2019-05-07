@@ -9,15 +9,24 @@ cancel.addEventListener("click", function(event) {
 });
 
 var moodScaleDom = document.getElementsByClassName("mood-scale")[0];
+var moodSelected = document.getElementsByClassName("mood-btn")[0];
 
 moodScaleDom.addEventListener("click", function(event) {
   event.stopPropagation();
-  mood[0].style.display = "none";
-  comment[0].style.display = "block";
   const moodtypeId = event.target.getAttribute("data-id");
+  // document.getElementById(`btn-${moodtypeId}`);
+  debugger;
+  document.getElementById(`btn-${moodtypeId}`).classList.add('animated', 'bounce');
+  setTimeout(myFunction, 1000);
+  
   document.getElementById("mood_type").value = moodtypeId;
   document.getElementById("comment_area").innerHTML = moodtypeMessage(moodtypeId);
 });
+
+function myFunction(){
+  mood[0].style.display = "none";
+  comment[0].style.display = "block";
+}
 
 function moodtypeMessage(type) {
   let msg = "";

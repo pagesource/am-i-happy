@@ -7,32 +7,39 @@ const moodScaleDom = document.getElementsByClassName("mood-scale")[0];
 cancelBtn.addEventListener("click", function(event) {
   mood[0].style.display = "block";
   comment[0].style.display = "none";
-  const message =document.getElementById("comment_area").value;
-  const moodtype =document.getElementById("mood_type").value;
+  const message = document.getElementById("comment_area").value;
+  const moodtype = document.getElementById("mood_type").value;
   let moodtypeId = localStorage.getItem("mid");
   console.log(moodtypeId);
-  document.getElementById(`btn-${moodtypeId}`).classList.remove('animated', 'bounce');
+  document
+    .getElementById(`btn-${moodtypeId}`)
+    .classList.remove("animated", "bounce");
 
   const data = {
-    name:'Ram',
-    mood_type:moodtype,
-    message:message
-  }
-  fetch('/addHappyIndex', {
+    name: "Ram",
+    mood_type: moodtype,
+    message: message
+  };
+  fetch("/addHappyIndex", {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  });
-  
+  })
+    .then(item => {
+      console.log("Data saved successfully");
+    })
+    .catch(error => console.error("Error:", error));
 });
 
 moodScaleDom.addEventListener("click", function(event) {
   event.stopPropagation();
   const moodtypeId = event.target.getAttribute("data-id");
-  document.getElementById(`btn-${moodtypeId}`).classList.add('animated', 'bounce');
+  document
+    .getElementById(`btn-${moodtypeId}`)
+    .classList.add("animated", "bounce");
   setTimeout(myFunction, 1000);
   document.getElementById("mood_type").value = moodtypeId;
   document.getElementById("comment_area").innerHTML = moodtypeMessage(
@@ -41,7 +48,7 @@ moodScaleDom.addEventListener("click", function(event) {
   localStorage.setItem("mid", moodtypeId);
 });
 
-function myFunction(){
+function myFunction() {
   mood[0].style.display = "none";
   comment[0].style.display = "block";
 }

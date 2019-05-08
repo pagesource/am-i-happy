@@ -1,7 +1,10 @@
-var express = require("express");
-var app = express();
-var port = 8000;
-var bodyParser = require("body-parser");
+const  express = require("express");
+var https = require('https');
+var fs = require('fs');
+
+const app = express();
+const port = 8000;
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
@@ -22,9 +25,13 @@ const MoodSchema = new mongoose.Schema({
 });
 
 
-var Employee = mongoose.model("Employee", EmployeeSchema);
-var MoodType = mongoose.model("MoodType", MoodSchema);
+const Employee = mongoose.model("Employee", EmployeeSchema);
+const MoodType = mongoose.model("MoodType", MoodSchema);
 
+const options = {
+  cert: fs.readFileSync(__dirname+'/certificate.crt'),
+  key: fs.readFileSync(__dirname+'/privateKey.key')
+};
 
 app.get("/", (req, res) => {
     MoodType.find({},function(err, moodtypes) {
@@ -41,13 +48,15 @@ app.post("/addHappyIndex", (req, res) => {
     .save()
     .then(item => {
      res.redirect("/")
-    
     })
     .catch(err => {
       res.status(400).send("Unable to save to database");
     });
 });
+var server = https.createServer(options,app);
 
-app.listen(port, () => {
-  console.log("Server listening on port " + port);
+server.listen(port, function(){
+    console.log(`server running at https://IP_ADDRESS:${port}/`)
 });
+
+

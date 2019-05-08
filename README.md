@@ -13,6 +13,13 @@ To run app use follow steps
 3. import moodtypes.json collection in mongoDB in HappyIndex Database
   
 PWA functionality Added.
+=======
+2. Run `npm i` or `npm install` 
+3. import `moodtypes.json` collection in mongoDB in `HappyIndex` Database
+  cmd to import json `mongoimport --host 127.0.0.1  --db  HappyIndex --collection moodtypes --file moodtypes.json`
+
+Site Url : http://localhost:8000/
+
 
 
 

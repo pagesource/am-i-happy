@@ -37,10 +37,14 @@ img {
 }
 
 h1 {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   font-size: 150%;
   font-weight: inherit;
   text-align: center;
+}
+
+h6{
+  padding-bottom: 25px;
 }
 
 .box {
@@ -53,6 +57,25 @@ h1 {
 
 .mood {
   text-align: center;
+}
+
+.mood-scale{
+  display: flex;
+  flex-direction: column;
+}
+
+.mood-scale li{
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.mood-scale span{
+  text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
+  width: 100px;
+  justify-content: center;
 }
 
 .comments {
@@ -84,7 +107,8 @@ h1 {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
+  font-family: "Open Sans", sans-serif;
 }
 .comments-form input[type="text"]:focus,
 .comments-form textarea:focus {

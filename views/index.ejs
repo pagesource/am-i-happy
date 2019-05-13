@@ -18,7 +18,7 @@
     <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#2F3BA2">
     <!-- <link rel="apple-touch-startup-image" href="/launch.png"> -->
-    <title>Mood Analzer App</title>
+    <title>Mood Analyzer App</title>
   </head>
 
   <body>
@@ -44,13 +44,14 @@
         <h1>Let's Talk!</h1>
         <div class="comments-form">
           <form action="/addHappyIndex" method="POST">
-            <input type="text" placeholder="Ram" label="Name" name="name" />
-            <input type="hidden" name="mood_type" id ="mood_type" value="" />
+            <input type="text" placeholder="Ram" label="Name" aria-label="Ram" name="name" />
+            <input type="hidden" name="mood_type" aria-label="Mood Type" id ="mood_type" value="" />
             <textarea
               class="width-100"
               placeholder="We would love to hear from you!"
               id="comment_area"
               label="Comment"
+              aria-label="Comment" 
               rows="6"
               name="message"
               required
